@@ -1,860 +1,262 @@
-const products = [
+// script.js — Neon Grill: menu + cart interactivity
+(() => {
+  const menuItems = [
+    { id: 'm1', name: 'Signature Burger', price: 120, emoji: '🍔', category: 'main', desc: 'Beef patty, neon sauce, fries' },
+    { id: 'm2', name: 'Neon Veggie', price: 110, emoji: '🥗', category: 'main', desc: 'Grilled veggies, vegan bun' },
+    { id: 'm3', name: 'Street Fries', price: 45, emoji: '🍟', category: 'side', desc: 'Double-fried, salted' },
+    { id: 'm4', name: 'Arcade Shake', price: 65, emoji: '🥤', category: 'drink', desc: 'Vanilla neon swirl' },
+    { id: 'm5', name: 'Glowing Nachos', price: 75, emoji: '🧀', category: 'side', desc: 'Cheesy, with pico' },
+    { id: 'm6', name: 'Midnight Hotdog', price: 85, emoji: '🌭', category: 'main', desc: 'Loaded with neon relish' },
+    { id: 'm7', name: 'Pixel Pancakes', price: 55, emoji: '🥞', category: 'dessert', desc: 'Sweet stack with syrup' },
+    { id: 'm8', name: 'Fizzy Pop', price: 35, emoji: '🥤', category: 'drink', desc: 'Soda with neon ice' },
+    { id: 'm9', name: 'Choco Bomb', price: 50, emoji: '🍫', category: 'dessert', desc: 'Chocolate lava mini' },
+    { id: 'm10', name: 'Neo Salad', price: 95, emoji: '🥗', category: 'main', desc: 'Fresh greens, neon dressing' }
+  ];
 
-  {
-    id:"classic",
-    name:"Classic Neon Burger",
-    price:120,
-    cat:"main",
-    icon:"🍔",
-    desc:"Beef patty, cheese, lettuce, tomato and house sauce.",
-    c1:"#52182f",
-    c2:"#19152a"
-  },
+  const menuGrid = document.getElementById('menuGrid');
+  const filtersEl = document.getElementById('filters');
+  const cartBtn = document.getElementById('openCart');
+  const cartEl = document.getElementById('cart');
+  const overlay = document.getElementById('overlay');
+  const cartItemsEl = document.getElementById('cartItems');
+  const cartCountEl = document.getElementById('cartCount');
+  const subtotalEl = document.getElementById('subtotal');
+  const serviceEl = document.getElementById('service');
+  const totalEl = document.getElementById('total');
+  const clearCartBtn = document.getElementById('clearCart');
+  const confirmOrderBtn = document.getElementById('confirmOrder');
+  const closeCartBtn = document.getElementById('closeCart');
+  const modal = document.getElementById('modal');
+  const closeModalBtn = document.getElementById('closeModal');
 
-  {
-    id:"hotdog",
-    name:"Retro Hot Dog",
-    price:70,
-    cat:"main",
-    icon:"🌭",
-    desc:"Grilled sausage, crispy onions, mustard and ketchup.",
-    c1:"#643016",
-    c2:"#1e1613"
-  },
+  let cart = {};
 
-  {
-    id:"fries",
-    name:"Arcade Fries",
-    price:25,
-    cat:"side",
-    icon:"🍟",
-    desc:"Crispy salted fries with optional neon sauce.",
-    c1:"#58480f",
-    c2:"#1b1911"
-  },
+  const money = (n) => `$${n.toFixed(2)}`;
+  const saveCart = () => {
+    try { localStorage.setItem('neon_cart', JSON.stringify(cart)); } catch (e) {}
+  };
+  const loadCart = () => {
+    try {
+      const raw = localStorage.getItem('neon_cart');
+      cart = raw ? JSON.parse(raw) : {};
+    } catch (e) { cart = {}; }
+  };
 
-  {
-    id:"coca",
-    name:"Coca-Cola",
-    price:30,
-    cat:"drink",
-    icon:"🥤",
-    desc:"Cold classic soda.",
-    c1:"#501414",
-    c2:"#171116"
-  },
-
-  {
-    id:"water",
-    name:"Bottled Water",
-    price:20,
-    cat:"drink",
-    icon:"💧",
-    desc:"Chilled natural water.",
-    c1:"#0e3f50",
-    c2:"#101a22"
-  },
-
-  {
-    id:"malt",
-    name:"Malt Drink 0.0",
-    price:37,
-    cat:"drink",
-    icon:"🍺",
-    desc:"Non-alcoholic malt-style drink.",
-    c1:"#56420f",
-    c2:"#1d1911"
-  },
-
-  {
-    id:"cake",
-    name:"Chocolate Cake",
-    price:45,
-    cat:"dessert",
-    icon:"🍰",
-    desc:"Chocolate cake with neon sugar sprinkles.",
-    c1:"#46231a",
-    c2:"#23131c"
-  },
-
-  {
-    id:"icecream",
-    name:"Vanilla Ice Cream",
-    price:25,
-    cat:"dessert",
-    icon:"🍨",
-    desc:"Creamy vanilla ice cream with chocolate drizzle.",
-    c1:"#57482a",
-    c2:"#1d1916"
-  },
-
-  {
-    id:"flan",
-    name:"Classic Flan",
-    price:33,
-    cat:"dessert",
-    icon:"🍮",
-    desc:"House caramel flan.",
-    c1:"#62400f",
-    c2:"#20170f"
-  },
-
-  {
-    id:"double",
-    name:"Double Pixel Burger",
-    price:165,
-    cat:"main",
-    icon:"🍔",
-    desc:"Double beef, double cheese and smoky sauce.",
-    c1:"#431536",
-    c2:"#181626"
-  },
-
-  {
-    id:"chicken",
-    name:"Cyber Chicken Burger",
-    price:135,
-    cat:"main",
-    icon:"🍗",
-    desc:"Crispy chicken, slaw and spicy mayo.",
-    c1:"#594112",
-    c2:"#211912"
-  },
-
-  {
-    id:"rings",
-    name:"Neon Onion Rings",
-    price:55,
-    cat:"side",
-    icon:"🧅",
-    desc:"Crunchy onion rings with ranch dip.",
-    c1:"#573a12",
-    c2:"#1f1712"
-  },
-
-  {
-    id:"shake",
-    name:"Pink Galaxy Shake",
-    price:65,
-    cat:"drink",
-    icon:"🥤",
-    desc:"Strawberry milkshake with whipped cream.",
-    c1:"#5f183f",
-    c2:"#211522"
-  },
-
-  {
-    id:"lemonade",
-    name:"Electric Lemonade",
-    price:45,
-    cat:"drink",
-    icon:"🍋",
-    desc:"Fresh lemonade with mint.",
-    c1:"#4c5010",
-    c2:"#172014"
-  },
-
-  {
-    id:"brownie",
-    name:"Midnight Brownie",
-    price:50,
-    cat:"dessert",
-    icon:"🍫",
-    desc:"Warm brownie with vanilla topping.",
-    c1:"#3f241a",
-    c2:"#151217"
+  function escapeHtml(str) {
+    return ('' + str).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
   }
 
-];
-
-
-const qty =
-  Object.fromEntries(
-
-    products.map(
-      product => [
-        product.id,
-        0
-      ]
-    )
-
-  );
-
-
-const menuGrid =
-  document.getElementById(
-    "menuGrid"
-  );
-
-
-const cart =
-  document.getElementById(
-    "cart"
-  );
-
-
-const overlay =
-  document.getElementById(
-    "overlay"
-  );
-
-
-const modal =
-  document.getElementById(
-    "modal"
-  );
-
-
-
-function money(value){
-
-  return "$" +
-    Number(value)
-      .toLocaleString(
-        "en-US"
-      );
-
-}
-
-
-
-function categoryName(category){
-
-  return {
-
-    main:
-      "Burger / Main",
-
-    side:
-      "Side",
-
-    drink:
-      "Drink",
-
-    dessert:
-      "Dessert"
-
-  }[category];
-
-}
-
-
-
-function renderMenu(
-  filter = "all"
-){
-
-  const visible =
-
-    filter === "all"
-
-    ? products
-
-    : products.filter(
-        product =>
-          product.cat === filter
-      );
-
-
-  menuGrid.innerHTML =
-
-    visible.map(
-      product => `
-
-
-      <article class="menu-card">
-
-
-        <div
-          class="food-art"
-          style="
-            --c1:${product.c1};
-            --c2:${product.c2}
-          "
-        >
-
-          <div class="food-icon">
-
-            ${product.icon}
-
-          </div>
-
+  function renderMenu(filter = 'all') {
+    menuGrid.innerHTML = '';
+    const items = filter === 'all' ? menuItems : menuItems.filter(i => i.category === filter);
+    if (items.length === 0) {
+      menuGrid.innerHTML = '<div class="card" style="padding:20px">No items in this category.</div>';
+      return;
+    }
+    const frag = document.createDocumentFragment();
+    items.forEach(item => {
+      const card = document.createElement('article');
+      card.className = 'menu-card';
+      card.dataset.id = item.id;
+      card.innerHTML = `
+        <div class="food-art" aria-hidden="true">
+          <div class="food-emoji">${item.emoji}</div>
         </div>
-
-
-        <div class="menu-body">
-
-
-          <div class="menu-title-row">
-
-            <h3>
-              ${product.name}
-            </h3>
-
-            <span class="price">
-
-              ${money(
-                product.price
-              )}
-
-            </span>
-
+        <div class="menu-info">
+          <div class="menu-top">
+            <h3>${item.name}</h3>
+            <div class="menu-price">${money(item.price)}</div>
           </div>
-
-
-          <p>
-            ${product.desc}
-          </p>
-
-
-          <div class="menu-footer">
-
-            <span class="category">
-
-              ${categoryName(
-                product.cat
-              )}
-
-            </span>
-
-
+          <p>${escapeHtml(item.desc || '')}</p>
+          <div class="menu-bottom">
+            <div class="category">${item.category}</div>
             <div class="qty">
-
-
-              <button
-                type="button"
-                onclick="
-                  changeQty(
-                    '${product.id}',
-                    -1
-                  )
-                "
-              >
-                −
-              </button>
-
-
-              <input
-                id="qty-${product.id}"
-                value="${qty[product.id]}"
-                readonly
-              >
-
-
-              <button
-                type="button"
-                onclick="
-                  changeQty(
-                    '${product.id}',
-                    1
-                  )
-                "
-              >
-                +
-              </button>
-
-
+              <button class="btn-decrease" aria-label="Decrease quantity for ${escapeHtml(item.name)}">−</button>
+              <input class="qty-input" type="text" value="${cart[item.id] || 0}" aria-label="Quantity for ${escapeHtml(item.name)}" />
+              <button class="btn-increase" aria-label="Increase quantity for ${escapeHtml(item.name)}">+</button>
+              <button class="btn-add btn primary" style="margin-left:8px">Add</button>
             </div>
-
-
           </div>
-
-
         </div>
-
-
-      </article>
-
-
-    `
-
-    ).join("");
-
-}
-
-
-
-window.changeQty =
-function(
-  id,
-  delta
-){
-
-  qty[id] =
-    Math.max(
-      0,
-      qty[id] + delta
-    );
-
-
-  const input =
-    document.getElementById(
-      `qty-${id}`
-    );
-
-
-  if(input){
-
-    input.value =
-      qty[id];
-
+      `;
+      frag.appendChild(card);
+    });
+    menuGrid.appendChild(frag);
   }
 
-
-  renderCart();
-
-};
-
-
-
-function renderCart(){
-
-  const selected =
-
-    products.filter(
-
-      product =>
-        qty[product.id] > 0
-
-    );
-
-
-  const count =
-
-    selected.reduce(
-
-      (
-        sum,
-        product
-      ) =>
-
-        sum +
-        qty[product.id],
-
-      0
-
-    );
-
-
-  const subtotal =
-
-    selected.reduce(
-
-      (
-        sum,
-        product
-      ) =>
-
-        sum +
-        product.price *
-        qty[product.id],
-
-      0
-
-    );
-
-
-  const service =
-
-    Math.round(
-      subtotal * 0.05
-    );
-
-
-  const total =
-
-    subtotal +
-    service;
-
-
-  document
-    .getElementById(
-      "cartCount"
-    )
-    .textContent =
-      count;
-
-
-  document
-    .getElementById(
-      "subtotal"
-    )
-    .textContent =
-      money(subtotal);
-
-
-  document
-    .getElementById(
-      "service"
-    )
-    .textContent =
-      money(service);
-
-
-  document
-    .getElementById(
-      "total"
-    )
-    .textContent =
-      money(total);
-
-
-
-  document
-    .getElementById(
-      "cartItems"
-    )
-    .innerHTML =
-
-
-    selected.length
-
-    ?
-
-    selected.map(
-
-      product => `
-
-
-      <div class="cart-item">
-
-        <div>
-
-          <b>
-            ${product.name}
-          </b>
-
-          <small>
-
-            ${qty[product.id]}
-
-            ×
-
-            ${money(
-              product.price
-            )}
-
-          </small>
-
-        </div>
-
-
-        <b>
-
-          ${money(
-
-            qty[product.id] *
-            product.price
-
-          )}
-
-        </b>
-
-      </div>
-
-
-      `
-
-    ).join("")
-
-
-    :
-
-
-    `
-
-    <div class="empty-cart">
-
-      Your order is empty.
-
-      <br>
-
-      Add products from the menu.
-
-    </div>
-
-    `;
-
-}
-
-
-
-function openCart(){
-
-  cart
-    .classList
-    .add("open");
-
-
-  overlay
-    .classList
-    .add("show");
-
-
-  cart
-    .setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-}
-
-
-
-function closeCart(){
-
-  cart
-    .classList
-    .remove("open");
-
-
-  cart
-    .setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-
-  if(
-    !modal
-      .classList
-      .contains("show")
-  ){
-
-    overlay
-      .classList
-      .remove("show");
-
-  }
-
-}
-
-
-
-function openModal(){
-
-  closeCart();
-
-
-  overlay
-    .classList
-    .add("show");
-
-
-  modal
-    .classList
-    .add("show");
-
-}
-
-
-
-function closeModal(){
-
-  modal
-    .classList
-    .remove("show");
-
-
-  overlay
-    .classList
-    .remove("show");
-
-}
-
-
-
-document
-  .getElementById(
-    "openCart"
-  )
-  .addEventListener(
-    "click",
-    openCart
-  );
-
-
-
-document
-  .getElementById(
-    "closeCart"
-  )
-  .addEventListener(
-    "click",
-    closeCart
-  );
-
-
-
-document
-  .getElementById(
-    "closeModal"
-  )
-  .addEventListener(
-    "click",
-    closeModal
-  );
-
-
-
-document
-  .getElementById(
-    "clearCart"
-  )
-  .addEventListener(
-
-    "click",
-
-    () => {
-
-      products
-        .forEach(
-
-          product =>
-
-            qty[product.id] = 0
-
-        );
-
-
-      const active =
-
-        document
-          .querySelector(
-            ".filter.active"
-          );
-
-
-      renderMenu(
-
-        active
-
-        ? active.dataset.filter
-
-        : "all"
-
-      );
-
-
-      renderCart();
-
+  function renderCart() {
+    cartItemsEl.innerHTML = '';
+    const ids = Object.keys(cart);
+    if (ids.length === 0) {
+      cartItemsEl.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
+      cartCountEl.textContent = '0';
+      subtotalEl.textContent = '$0';
+      serviceEl.textContent = '$0';
+      totalEl.textContent = '$0';
+      return;
     }
+    const frag = document.createDocumentFragment();
+    let subtotal = 0;
+    ids.forEach(id => {
+      const qty = cart[id];
+      const item = menuItems.find(m => m.id === id);
+      if (!item) return;
+      const row = document.createElement('div');
+      row.className = 'cart-item';
+      const left = document.createElement('div');
+      left.innerHTML = `<strong>${item.name}</strong><small>${item.emoji} ${money(item.price)} · ${qty} ×</small>`;
+      const right = document.createElement('div');
+      right.innerHTML = `
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button class="btn-decrease-cart" data-id="${id}" aria-label="Decrease ${escapeHtml(item.name)}">−</button>
+          <span style="min-width:28px;text-align:center">${qty}</span>
+          <button class="btn-increase-cart" data-id="${id}" aria-label="Increase ${escapeHtml(item.name)}">+</button>
+          <button class="btn-remove-cart" data-id="${id}" aria-label="Remove ${escapeHtml(item.name)}" style="margin-left:8px">Remove</button>
+        </div>
+      `;
+      row.appendChild(left);
+      row.appendChild(right);
+      frag.appendChild(row);
+      subtotal += item.price * qty;
+    });
+    cartItemsEl.appendChild(frag);
+    cartCountEl.textContent = ids.reduce((s, id) => s + cart[id], 0);
+    subtotalEl.textContent = money(subtotal);
+    const service = +(subtotal * 0.05);
+    serviceEl.textContent = money(service);
+    totalEl.textContent = money(subtotal + service);
+  }
 
-  );
+  function syncMenuQuantities() {
+    document.querySelectorAll('.menu-card').forEach(card => {
+      const id = card.dataset.id;
+      const qtyInput = card.querySelector('.qty-input');
+      if (qtyInput) qtyInput.value = cart[id] || 0;
+    });
+  }
 
+  function addToCart(id, amount = 1) {
+    if (!cart[id]) cart[id] = 0;
+    cart[id] = Math.max(0, cart[id] + amount);
+    if (cart[id] === 0) delete cart[id];
+    saveCart();
+    renderCart();
+    syncMenuQuantities();
+  }
 
+  function removeFromCart(id) {
+    delete cart[id];
+    saveCart();
+    renderCart();
+    syncMenuQuantities();
+  }
 
-document
-  .getElementById(
-    "confirmOrder"
-  )
-  .addEventListener(
+  function bindEvents() {
+    filtersEl.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('.filter');
+      if (!btn) return;
+      const filter = btn.dataset.filter || 'all';
+      filtersEl.querySelectorAll('.filter').forEach(b => b.classList.toggle('active', b === btn));
+      renderMenu(filter);
+    });
 
-    "click",
-
-    () => {
-
-
-      const hasItems =
-
-        products.some(
-
-          product =>
-            qty[product.id] > 0
-
-        );
-
-
-      if(!hasItems){
-
-        alert(
-          "Add at least one product first."
-        );
-
-        return;
-
+    menuGrid.addEventListener('click', (ev) => {
+      const inc = ev.target.closest('.btn-increase');
+      const dec = ev.target.closest('.btn-decrease');
+      const add = ev.target.closest('.btn-add');
+      const card = ev.target.closest('.menu-card');
+      if (!card) return;
+      const id = card.dataset.id;
+      const qtyInput = card.querySelector('.qty-input');
+      if (inc) {
+        qtyInput.value = parseInt(qtyInput.value || '0', 10) + 1;
+      } else if (dec) {
+        qtyInput.value = Math.max(0, parseInt(qtyInput.value || '0', 10) - 1);
+      } else if (add) {
+        const v = parseInt(qtyInput.value || '0', 10) || 1;
+        addToCart(id, v);
       }
+    });
 
+    menuGrid.addEventListener('change', (ev) => {
+      const input = ev.target.closest('.qty-input');
+      if (!input) return;
+      const card = input.closest('.menu-card');
+      const id = card.dataset.id;
+      const v = Math.max(0, parseInt(input.value || '0', 10) || 0);
+      if (v > 0) {
+        cart[id] = v;
+        saveCart();
+        renderCart();
+      }
+    });
 
-      openModal();
+    cartBtn.addEventListener('click', () => openCart());
+    overlay.addEventListener('click', () => closeCart());
+    closeCartBtn && closeCartBtn.addEventListener('click', () => closeCart());
 
-    }
+    cartItemsEl.addEventListener('click', (ev) => {
+      const inc = ev.target.closest('.btn-increase-cart');
+      const dec = ev.target.closest('.btn-decrease-cart');
+      const rem = ev.target.closest('.btn-remove-cart');
+      if (inc) addToCart(inc.dataset.id, +1);
+      else if (dec) addToCart(dec.dataset.id, -1);
+      else if (rem) removeFromCart(rem.dataset.id);
+    });
 
-  );
-
-
-
-overlay
-  .addEventListener(
-
-    "click",
-
-    () => {
-
+    clearCartBtn && clearCartBtn.addEventListener('click', () => {
+      cart = {};
+      saveCart();
+      renderCart();
       closeCart();
+    });
 
-      closeModal();
+    confirmOrderBtn && confirmOrderBtn.addEventListener('click', () => {
+      if (modal) {
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+      cart = {};
+      saveCart();
+      renderCart();
+      closeCart();
+    });
 
-    }
+    closeModalBtn && closeModalBtn.addEventListener('click', () => {
+      if (modal) {
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
 
-  );
+    document.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape') {
+        if (modal && modal.classList.contains('show')) {
+          modal.classList.remove('show');
+          modal.setAttribute('aria-hidden', 'true');
+        } else if (cartEl && cartEl.classList.contains('open')) closeCart();
+      }
+    });
+  }
 
+  function openCart() {
+    cartEl.classList.add('open');
+    cartEl.setAttribute('aria-hidden', 'false');
+    overlay.classList.add('show');
+  }
 
+  function closeCart() {
+    cartEl.classList.remove('open');
+    cartEl.setAttribute('aria-hidden', 'true');
+    overlay.classList.remove('show');
+  }
 
-document
-  .querySelectorAll(
-    ".filter"
-  )
-  .forEach(
+  function init() {
+    loadCart();
+    renderMenu('all');
+    renderCart();
+    bindEvents();
+  }
 
-    button => {
-
-      button
-        .addEventListener(
-
-          "click",
-
-          () => {
-
-
-            document
-              .querySelectorAll(
-                ".filter"
-              )
-              .forEach(
-
-                item =>
-
-                  item
-                    .classList
-                    .remove(
-                      "active"
-                    )
-
-              );
-
-
-            button
-              .classList
-              .add(
-                "active"
-              );
-
-
-            renderMenu(
-              button.dataset.filter
-            );
-
-          }
-
-        );
-
-    }
-
-  );
-
-
-
-renderMenu();
-
-renderCart();
+  document.addEventListener('DOMContentLoaded', init);
+})();
