@@ -1,16 +1,21 @@
-// script.js — Neon Grill: menu + cart interactivity
+// script.js — Neon Grill: menu + cart interactivity con fotos reales
 (() => {
   const menuItems = [
-    { id: 'm1', name: 'Signature Burger', price: 120, emoji: '🍔', category: 'main', desc: 'Beef patty, neon sauce, fries' },
-    { id: 'm2', name: 'Neon Veggie', price: 110, emoji: '🥗', category: 'main', desc: 'Grilled veggies, vegan bun' },
-    { id: 'm3', name: 'Street Fries', price: 45, emoji: '🍟', category: 'side', desc: 'Double-fried, salted' },
-    { id: 'm4', name: 'Arcade Shake', price: 65, emoji: '🥤', category: 'drink', desc: 'Vanilla neon swirl' },
-    { id: 'm5', name: 'Glowing Nachos', price: 75, emoji: '🧀', category: 'side', desc: 'Cheesy, with pico' },
-    { id: 'm6', name: 'Midnight Hotdog', price: 85, emoji: '🌭', category: 'main', desc: 'Loaded with neon relish' },
-    { id: 'm7', name: 'Pixel Pancakes', price: 55, emoji: '🥞', category: 'dessert', desc: 'Sweet stack with syrup' },
-    { id: 'm8', name: 'Fizzy Pop', price: 35, emoji: '🥤', category: 'drink', desc: 'Soda with neon ice' },
-    { id: 'm9', name: 'Choco Bomb', price: 50, emoji: '🍫', category: 'dessert', desc: 'Chocolate lava mini' },
-    { id: 'm10', name: 'Neo Salad', price: 95, emoji: '🥗', category: 'main', desc: 'Fresh greens, neon dressing' }
+    { id: 'm1', name: 'Signature Burger', price: 120, image: 'products/signature-burger.jpg', category: 'main', desc: 'Beef patty, neon sauce, fries' },
+    { id: 'm2', name: 'Neon Veggie', price: 110, image: 'products/neon-veggie.jpg', category: 'main', desc: 'Grilled veggies, vegan bun' },
+    { id: 'm3', name: 'Street Fries', price: 45, image: 'products/street-fries.jpg', category: 'side', desc: 'Double-fried, salted' },
+    { id: 'm4', name: 'Arcade Shake', price: 65, image: 'products/arcade-shake.jpg', category: 'drink', desc: 'Vanilla neon swirl' },
+    { id: 'm5', name: 'Glowing Nachos', price: 75, image: 'products/glowing-nachos.jpg', category: 'side', desc: 'Cheesy, with pico' },
+    { id: 'm6', name: 'Midnight Hotdog', price: 85, image: 'products/midnight-hotdog.jpg', category: 'main', desc: 'Loaded with neon relish' },
+    { id: 'm7', name: 'Pixel Pancakes', price: 55, image: 'products/pixel-pancakes.jpg', category: 'dessert', desc: 'Sweet stack with syrup' },
+    { id: 'm8', name: 'Fizzy Pop', price: 35, image: 'products/fizzy-pop.jpg', category: 'drink', desc: 'Soda with neon ice' },
+    { id: 'm9', name: 'Choco Bomb', price: 50, image: 'products/choco-bomb.jpg', category: 'dessert', desc: 'Chocolate lava mini' },
+    { id: 'm10', name: 'Neo Salad', price: 95, image: 'products/neo-salad.jpg', category: 'main', desc: 'Fresh greens, neon dressing' },
+    { id: 'm11', name: 'Spicy Dragon Burger', price: 130, image: 'products/spicy-dragon-burger.jpg', category: 'main', desc: 'Jalapeño, ghost pepper, fire sauce' },
+    { id: 'm12', name: 'Cyber Fries', price: 55, image: 'products/cyber-fries.jpg', category: 'side', desc: 'Truffle oil & parmesan' },
+    { id: 'm13', name: 'Neon Milkshake', price: 75, image: 'products/neon-milkshake.jpg', category: 'drink', desc: 'Strawberry & mint neon blend' },
+    { id: 'm14', name: 'Arcade Onion Rings', price: 65, image: 'products/arcade-onion-rings.jpg', category: 'side', desc: 'Crispy golden rings' },
+    { id: 'm15', name: 'Future Pie', price: 60, image: 'products/future-pie.jpg', category: 'dessert', desc: 'Apple pie with neon glaze' }
   ];
 
   const menuGrid = document.getElementById('menuGrid');
@@ -59,8 +64,8 @@
       card.className = 'menu-card';
       card.dataset.id = item.id;
       card.innerHTML = `
-        <div class="food-art" aria-hidden="true">
-          <div class="food-emoji">${item.emoji}</div>
+        <div class="food-art">
+          <img src="${item.image}" alt="${item.name}" style="width:100%; height:100%; object-fit:cover; border-radius:16px;">
         </div>
         <div class="menu-info">
           <div class="menu-top">
@@ -104,7 +109,7 @@
       const row = document.createElement('div');
       row.className = 'cart-item';
       const left = document.createElement('div');
-      left.innerHTML = `<strong>${item.name}</strong><small>${item.emoji} ${money(item.price)} · ${qty} ×</small>`;
+      left.innerHTML = `<strong>${item.name}</strong><small>${money(item.price)} · ${qty} ×</small>`;
       const right = document.createElement('div');
       right.innerHTML = `
         <div style="display:flex;align-items:center;gap:8px;">
