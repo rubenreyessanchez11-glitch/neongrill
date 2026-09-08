@@ -1,21 +1,126 @@
-// script.js — Neon Grill: menu + cart interactivity con fotos reales
+// script.js — Neon Grill
 (() => {
   const menuItems = [
-    { id: 'm1', name: 'Signature Burger', price: 120, image: 'products/signature-burger.jpg', category: 'main', desc: 'Beef patty, neon sauce, fries' },
-    { id: 'm2', name: 'Neon Veggie', price: 110, image: 'products/neon-veggie.jpg', category: 'main', desc: 'Grilled veggies, vegan bun' },
-    { id: 'm3', name: 'Street Fries', price: 45, image: 'products/street-fries.jpg', category: 'side', desc: 'Double-fried, salted' },
-    { id: 'm4', name: 'Arcade Shake', price: 65, image: 'products/arcade-shake.jpg', category: 'drink', desc: 'Vanilla neon swirl' },
-    { id: 'm5', name: 'Glowing Nachos', price: 75, image: 'products/glowing-nachos.jpg', category: 'side', desc: 'Cheesy, with pico' },
-    { id: 'm6', name: 'Midnight Hotdog', price: 85, image: 'products/midnight-hotdog.jpg', category: 'main', desc: 'Loaded with neon relish' },
-    { id: 'm7', name: 'Pixel Pancakes', price: 55, image: 'products/pixel-pancakes.jpg', category: 'dessert', desc: 'Sweet stack with syrup' },
-    { id: 'm8', name: 'Fizzy Pop', price: 35, image: 'products/fizzy-pop.jpg', category: 'drink', desc: 'Soda with neon ice' },
-    { id: 'm9', name: 'Choco Bomb', price: 50, image: 'products/choco-bomb.jpg', category: 'dessert', desc: 'Chocolate lava mini' },
-    { id: 'm10', name: 'Neo Salad', price: 95, image: 'products/neo-salad.jpg', category: 'main', desc: 'Fresh greens, neon dressing' },
-    { id: 'm11', name: 'Spicy Dragon Burger', price: 130, image: 'products/spicy-dragon-burger.jpg', category: 'main', desc: 'Jalapeño, ghost pepper, fire sauce' },
-    { id: 'm12', name: 'Cyber Fries', price: 55, image: 'products/cyber-fries.jpg', category: 'side', desc: 'Truffle oil & parmesan' },
-    { id: 'm13', name: 'Neon Milkshake', price: 75, image: 'products/neon-milkshake.jpg', category: 'drink', desc: 'Strawberry & mint neon blend' },
-    { id: 'm14', name: 'Arcade Onion Rings', price: 65, image: 'products/arcade-onion-rings.jpg', category: 'side', desc: 'Crispy golden rings' },
-    { id: 'm15', name: 'Future Pie', price: 60, image: 'products/future-pie.jpg', category: 'dessert', desc: 'Apple pie with neon glaze' }
+    {
+      id: 'm1',
+      name: 'Signature Burger',
+      price: 120,
+      image: 'signature-burger.jpg',
+      category: 'main',
+      desc: 'Beef patty, neon sauce, fries'
+    },
+    {
+      id: 'm2',
+      name: 'Neon Veggie',
+      price: 110,
+      image: 'neon-veggie.jpg',
+      category: 'main',
+      desc: 'Grilled veggies, vegan bun'
+    },
+    {
+      id: 'm3',
+      name: 'Street Fries',
+      price: 45,
+      image: 'street-fries.jpg',
+      category: 'side',
+      desc: 'Double-fried, salted'
+    },
+    {
+      id: 'm4',
+      name: 'Arcade Shake',
+      price: 65,
+      image: 'arcade-shake.jpg',
+      category: 'drink',
+      desc: 'Vanilla neon swirl'
+    },
+    {
+      id: 'm5',
+      name: 'Glowing Nachos',
+      price: 75,
+      image: 'glowing-nachos.jpg',
+      category: 'side',
+      desc: 'Cheesy, with pico'
+    },
+    {
+      id: 'm6',
+      name: 'Midnight Hotdog',
+      price: 85,
+      image: 'midnight-hotdog.jpg',
+      category: 'main',
+      desc: 'Loaded with neon relish'
+    },
+    {
+      id: 'm7',
+      name: 'Pixel Pancakes',
+      price: 55,
+      image: 'pixel-pancakes.jpg',
+      category: 'dessert',
+      desc: 'Sweet stack with syrup'
+    },
+    {
+      id: 'm8',
+      name: 'Fizzy Pop',
+      price: 35,
+      image: 'fizzy-pop.jpg',
+      category: 'drink',
+      desc: 'Soda with neon ice'
+    },
+    {
+      id: 'm9',
+      name: 'Choco Bomb',
+      price: 50,
+      image: 'choco-bomb.jpg',
+      category: 'dessert',
+      desc: 'Chocolate lava mini'
+    },
+    {
+      id: 'm10',
+      name: 'Neo Salad',
+      price: 95,
+      image: 'neo-salad.jpg',
+      category: 'main',
+      desc: 'Fresh greens, neon dressing'
+    },
+    {
+      id: 'm11',
+      name: 'Spicy Dragon Burger',
+      price: 130,
+      image: 'spicy-dragon-burger.jpg',
+      category: 'main',
+      desc: 'Jalapeño, ghost pepper, fire sauce'
+    },
+    {
+      id: 'm12',
+      name: 'Cyber Fries',
+      price: 55,
+      image: 'cyber-fries.jpg',
+      category: 'side',
+      desc: 'Truffle oil & parmesan'
+    },
+    {
+      id: 'm13',
+      name: 'Neon Milkshake',
+      price: 75,
+      image: 'neon-milkshake.jpg',
+      category: 'drink',
+      desc: 'Strawberry & mint neon blend'
+    },
+    {
+      id: 'm14',
+      name: 'Arcade Onion Rings',
+      price: 65,
+      image: 'arcade-onion-rings.jpg',
+      category: 'side',
+      desc: 'Crispy golden rings'
+    },
+    {
+      id: 'm15',
+      name: 'Future Pie',
+      price: 60,
+      image: 'future-pie.jpg',
+      category: 'dessert',
+      desc: 'Apple pie with neon glaze'
+    }
   ];
 
   const menuGrid = document.getElementById('menuGrid');
@@ -36,114 +141,234 @@
 
   let cart = {};
 
-  const money = (n) => `$${n.toFixed(2)}`;
+  const money = (number) => `$${number.toFixed(2)}`;
+
   const saveCart = () => {
-    try { localStorage.setItem('neon_cart', JSON.stringify(cart)); } catch (e) {}
-  };
-  const loadCart = () => {
     try {
-      const raw = localStorage.getItem('neon_cart');
-      cart = raw ? JSON.parse(raw) : {};
-    } catch (e) { cart = {}; }
+      localStorage.setItem('neon_cart', JSON.stringify(cart));
+    } catch (error) {
+      console.error('Could not save cart:', error);
+    }
   };
 
-  function escapeHtml(str) {
-    return ('' + str).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+  const loadCart = () => {
+    try {
+      const savedCart = localStorage.getItem('neon_cart');
+      cart = savedCart ? JSON.parse(savedCart) : {};
+    } catch (error) {
+      cart = {};
+    }
+  };
+
+  function escapeHtml(text) {
+    return String(text).replace(/[&<>"']/g, (character) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[character]));
   }
 
   function renderMenu(filter = 'all') {
+    if (!menuGrid) return;
+
     menuGrid.innerHTML = '';
-    const items = filter === 'all' ? menuItems : menuItems.filter(i => i.category === filter);
+
+    const items = filter === 'all'
+      ? menuItems
+      : menuItems.filter(item => item.category === filter);
+
     if (items.length === 0) {
-      menuGrid.innerHTML = '<div class="card" style="padding:20px">No items in this category.</div>';
+      menuGrid.innerHTML =
+        '<div class="card" style="padding:20px">No items in this category.</div>';
       return;
     }
-    const frag = document.createDocumentFragment();
-    items.forEach(item => {
+
+    const fragment = document.createDocumentFragment();
+
+    items.forEach((item) => {
       const card = document.createElement('article');
+
       card.className = 'menu-card';
       card.dataset.id = item.id;
+
       card.innerHTML = `
         <div class="food-art">
-          <img src="${item.image}" alt="${item.name}" style="width:100%; height:100%; object-fit:cover; border-radius:16px;">
+          <img
+            src="${item.image}"
+            alt="${escapeHtml(item.name)}"
+            style="width:100%; height:100%; object-fit:cover; border-radius:16px;"
+          >
         </div>
+
         <div class="menu-info">
           <div class="menu-top">
-            <h3>${item.name}</h3>
+            <h3>${escapeHtml(item.name)}</h3>
             <div class="menu-price">${money(item.price)}</div>
           </div>
-          <p>${escapeHtml(item.desc || '')}</p>
+
+          <p>${escapeHtml(item.desc)}</p>
+
           <div class="menu-bottom">
-            <div class="category">${item.category}</div>
+            <div class="category">${escapeHtml(item.category)}</div>
+
             <div class="qty">
-              <button class="btn-decrease" aria-label="Decrease quantity for ${escapeHtml(item.name)}">−</button>
-              <input class="qty-input" type="text" value="${cart[item.id] || 0}" aria-label="Quantity for ${escapeHtml(item.name)}" />
-              <button class="btn-increase" aria-label="Increase quantity for ${escapeHtml(item.name)}">+</button>
-              <button class="btn-add btn primary" style="margin-left:8px">Add</button>
+              <button
+                class="btn-decrease"
+                aria-label="Decrease quantity for ${escapeHtml(item.name)}"
+              >
+                −
+              </button>
+
+              <input
+                class="qty-input"
+                type="text"
+                value="${cart[item.id] || 0}"
+                aria-label="Quantity for ${escapeHtml(item.name)}"
+              >
+
+              <button
+                class="btn-increase"
+                aria-label="Increase quantity for ${escapeHtml(item.name)}"
+              >
+                +
+              </button>
+
+              <button
+                class="btn-add btn primary"
+                style="margin-left:8px"
+              >
+                Add
+              </button>
             </div>
           </div>
         </div>
       `;
-      frag.appendChild(card);
+
+      fragment.appendChild(card);
     });
-    menuGrid.appendChild(frag);
+
+    menuGrid.appendChild(fragment);
   }
 
   function renderCart() {
+    if (!cartItemsEl) return;
+
     cartItemsEl.innerHTML = '';
+
     const ids = Object.keys(cart);
+
     if (ids.length === 0) {
-      cartItemsEl.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
-      cartCountEl.textContent = '0';
-      subtotalEl.textContent = '$0';
-      serviceEl.textContent = '$0';
-      totalEl.textContent = '$0';
+      cartItemsEl.innerHTML =
+        '<div class="cart-empty">Your cart is empty.</div>';
+
+      if (cartCountEl) cartCountEl.textContent = '0';
+      if (subtotalEl) subtotalEl.textContent = '$0.00';
+      if (serviceEl) serviceEl.textContent = '$0.00';
+      if (totalEl) totalEl.textContent = '$0.00';
+
       return;
     }
-    const frag = document.createDocumentFragment();
+
+    const fragment = document.createDocumentFragment();
     let subtotal = 0;
-    ids.forEach(id => {
-      const qty = cart[id];
-      const item = menuItems.find(m => m.id === id);
+
+    ids.forEach((id) => {
+      const quantity = cart[id];
+      const item = menuItems.find(menuItem => menuItem.id === id);
+
       if (!item) return;
+
       const row = document.createElement('div');
-      row.className = 'cart-item';
       const left = document.createElement('div');
-      left.innerHTML = `<strong>${item.name}</strong><small>${money(item.price)} · ${qty} ×</small>`;
       const right = document.createElement('div');
+
+      row.className = 'cart-item';
+
+      left.innerHTML = `
+        <strong>${escapeHtml(item.name)}</strong>
+        <small>${money(item.price)} · ${quantity} ×</small>
+      `;
+
       right.innerHTML = `
-        <div style="display:flex;align-items:center;gap:8px;">
-          <button class="btn-decrease-cart" data-id="${id}" aria-label="Decrease ${escapeHtml(item.name)}">−</button>
-          <span style="min-width:28px;text-align:center">${qty}</span>
-          <button class="btn-increase-cart" data-id="${id}" aria-label="Increase ${escapeHtml(item.name)}">+</button>
-          <button class="btn-remove-cart" data-id="${id}" aria-label="Remove ${escapeHtml(item.name)}" style="margin-left:8px">Remove</button>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button
+            class="btn-decrease-cart"
+            data-id="${id}"
+            aria-label="Decrease ${escapeHtml(item.name)}"
+          >
+            −
+          </button>
+
+          <span style="min-width:28px; text-align:center">
+            ${quantity}
+          </span>
+
+          <button
+            class="btn-increase-cart"
+            data-id="${id}"
+            aria-label="Increase ${escapeHtml(item.name)}"
+          >
+            +
+          </button>
+
+          <button
+            class="btn-remove-cart"
+            data-id="${id}"
+            aria-label="Remove ${escapeHtml(item.name)}"
+            style="margin-left:8px"
+          >
+            Remove
+          </button>
         </div>
       `;
+
       row.appendChild(left);
       row.appendChild(right);
-      frag.appendChild(row);
-      subtotal += item.price * qty;
+      fragment.appendChild(row);
+
+      subtotal += item.price * quantity;
     });
-    cartItemsEl.appendChild(frag);
-    cartCountEl.textContent = ids.reduce((s, id) => s + cart[id], 0);
-    subtotalEl.textContent = money(subtotal);
-    const service = +(subtotal * 0.05);
-    serviceEl.textContent = money(service);
-    totalEl.textContent = money(subtotal + service);
+
+    cartItemsEl.appendChild(fragment);
+
+    const totalProducts = ids.reduce(
+      (total, id) => total + cart[id],
+      0
+    );
+
+    const service = subtotal * 0.05;
+    const total = subtotal + service;
+
+    if (cartCountEl) cartCountEl.textContent = totalProducts;
+    if (subtotalEl) subtotalEl.textContent = money(subtotal);
+    if (serviceEl) serviceEl.textContent = money(service);
+    if (totalEl) totalEl.textContent = money(total);
   }
 
   function syncMenuQuantities() {
-    document.querySelectorAll('.menu-card').forEach(card => {
+    document.querySelectorAll('.menu-card').forEach((card) => {
       const id = card.dataset.id;
-      const qtyInput = card.querySelector('.qty-input');
-      if (qtyInput) qtyInput.value = cart[id] || 0;
+      const quantityInput = card.querySelector('.qty-input');
+
+      if (quantityInput) {
+        quantityInput.value = cart[id] || 0;
+      }
     });
   }
 
   function addToCart(id, amount = 1) {
-    if (!cart[id]) cart[id] = 0;
+    if (!cart[id]) {
+      cart[id] = 0;
+    }
+
     cart[id] = Math.max(0, cart[id] + amount);
-    if (cart[id] === 0) delete cart[id];
+
+    if (cart[id] === 0) {
+      delete cart[id];
+    }
+
     saveCart();
     renderCart();
     syncMenuQuantities();
@@ -156,104 +381,174 @@
     syncMenuQuantities();
   }
 
-  function bindEvents() {
-    filtersEl.addEventListener('click', (ev) => {
-      const btn = ev.target.closest('.filter');
-      if (!btn) return;
-      const filter = btn.dataset.filter || 'all';
-      filtersEl.querySelectorAll('.filter').forEach(b => b.classList.toggle('active', b === btn));
-      renderMenu(filter);
-    });
-
-    menuGrid.addEventListener('click', (ev) => {
-      const inc = ev.target.closest('.btn-increase');
-      const dec = ev.target.closest('.btn-decrease');
-      const add = ev.target.closest('.btn-add');
-      const card = ev.target.closest('.menu-card');
-      if (!card) return;
-      const id = card.dataset.id;
-      const qtyInput = card.querySelector('.qty-input');
-      if (inc) {
-        qtyInput.value = parseInt(qtyInput.value || '0', 10) + 1;
-      } else if (dec) {
-        qtyInput.value = Math.max(0, parseInt(qtyInput.value || '0', 10) - 1);
-      } else if (add) {
-        const v = parseInt(qtyInput.value || '0', 10) || 1;
-        addToCart(id, v);
-      }
-    });
-
-    menuGrid.addEventListener('change', (ev) => {
-      const input = ev.target.closest('.qty-input');
-      if (!input) return;
-      const card = input.closest('.menu-card');
-      const id = card.dataset.id;
-      const v = Math.max(0, parseInt(input.value || '0', 10) || 0);
-      if (v > 0) {
-        cart[id] = v;
-        saveCart();
-        renderCart();
-      }
-    });
-
-    cartBtn.addEventListener('click', () => openCart());
-    overlay.addEventListener('click', () => closeCart());
-    closeCartBtn && closeCartBtn.addEventListener('click', () => closeCart());
-
-    cartItemsEl.addEventListener('click', (ev) => {
-      const inc = ev.target.closest('.btn-increase-cart');
-      const dec = ev.target.closest('.btn-decrease-cart');
-      const rem = ev.target.closest('.btn-remove-cart');
-      if (inc) addToCart(inc.dataset.id, +1);
-      else if (dec) addToCart(dec.dataset.id, -1);
-      else if (rem) removeFromCart(rem.dataset.id);
-    });
-
-    clearCartBtn && clearCartBtn.addEventListener('click', () => {
-      cart = {};
-      saveCart();
-      renderCart();
-      closeCart();
-    });
-
-    confirmOrderBtn && confirmOrderBtn.addEventListener('click', () => {
-      if (modal) {
-        modal.classList.add('show');
-        modal.setAttribute('aria-hidden', 'false');
-      }
-      cart = {};
-      saveCart();
-      renderCart();
-      closeCart();
-    });
-
-    closeModalBtn && closeModalBtn.addEventListener('click', () => {
-      if (modal) {
-        modal.classList.remove('show');
-        modal.setAttribute('aria-hidden', 'true');
-      }
-    });
-
-    document.addEventListener('keydown', (ev) => {
-      if (ev.key === 'Escape') {
-        if (modal && modal.classList.contains('show')) {
-          modal.classList.remove('show');
-          modal.setAttribute('aria-hidden', 'true');
-        } else if (cartEl && cartEl.classList.contains('open')) closeCart();
-      }
-    });
-  }
-
   function openCart() {
+    if (!cartEl || !overlay) return;
+
     cartEl.classList.add('open');
     cartEl.setAttribute('aria-hidden', 'false');
     overlay.classList.add('show');
   }
 
   function closeCart() {
+    if (!cartEl || !overlay) return;
+
     cartEl.classList.remove('open');
     cartEl.setAttribute('aria-hidden', 'true');
     overlay.classList.remove('show');
+  }
+
+  function bindEvents() {
+    if (filtersEl) {
+      filtersEl.addEventListener('click', (event) => {
+        const button = event.target.closest('.filter');
+
+        if (!button) return;
+
+        const filter = button.dataset.filter || 'all';
+
+        filtersEl.querySelectorAll('.filter').forEach((filterButton) => {
+          filterButton.classList.toggle(
+            'active',
+            filterButton === button
+          );
+        });
+
+        renderMenu(filter);
+      });
+    }
+
+    if (menuGrid) {
+      menuGrid.addEventListener('click', (event) => {
+        const increaseButton = event.target.closest('.btn-increase');
+        const decreaseButton = event.target.closest('.btn-decrease');
+        const addButton = event.target.closest('.btn-add');
+        const card = event.target.closest('.menu-card');
+
+        if (!card) return;
+
+        const id = card.dataset.id;
+        const quantityInput = card.querySelector('.qty-input');
+
+        if (!quantityInput) return;
+
+        if (increaseButton) {
+          quantityInput.value =
+            parseInt(quantityInput.value || '0', 10) + 1;
+        } else if (decreaseButton) {
+          quantityInput.value = Math.max(
+            0,
+            parseInt(quantityInput.value || '0', 10) - 1
+          );
+        } else if (addButton) {
+          const quantity =
+            parseInt(quantityInput.value || '0', 10) || 1;
+
+          addToCart(id, quantity);
+        }
+      });
+
+      menuGrid.addEventListener('change', (event) => {
+        const input = event.target.closest('.qty-input');
+
+        if (!input) return;
+
+        const card = input.closest('.menu-card');
+        const id = card.dataset.id;
+
+        const quantity = Math.max(
+          0,
+          parseInt(input.value || '0', 10) || 0
+        );
+
+        if (quantity > 0) {
+          cart[id] = quantity;
+        } else {
+          delete cart[id];
+        }
+
+        saveCart();
+        renderCart();
+        syncMenuQuantities();
+      });
+    }
+
+    if (cartBtn) {
+      cartBtn.addEventListener('click', openCart);
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', closeCart);
+    }
+
+    if (closeCartBtn) {
+      closeCartBtn.addEventListener('click', closeCart);
+    }
+
+    if (cartItemsEl) {
+      cartItemsEl.addEventListener('click', (event) => {
+        const increaseButton =
+          event.target.closest('.btn-increase-cart');
+
+        const decreaseButton =
+          event.target.closest('.btn-decrease-cart');
+
+        const removeButton =
+          event.target.closest('.btn-remove-cart');
+
+        if (increaseButton) {
+          addToCart(increaseButton.dataset.id, 1);
+        } else if (decreaseButton) {
+          addToCart(decreaseButton.dataset.id, -1);
+        } else if (removeButton) {
+          removeFromCart(removeButton.dataset.id);
+        }
+      });
+    }
+
+    if (clearCartBtn) {
+      clearCartBtn.addEventListener('click', () => {
+        cart = {};
+        saveCart();
+        renderCart();
+        syncMenuQuantities();
+        closeCart();
+      });
+    }
+
+    if (confirmOrderBtn) {
+      confirmOrderBtn.addEventListener('click', () => {
+        if (modal) {
+          modal.classList.add('show');
+          modal.setAttribute('aria-hidden', 'false');
+        }
+
+        cart = {};
+        saveCart();
+        renderCart();
+        syncMenuQuantities();
+        closeCart();
+      });
+    }
+
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', () => {
+        if (!modal) return;
+
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+      });
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+
+      if (modal && modal.classList.contains('show')) {
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+      } else if (cartEl && cartEl.classList.contains('open')) {
+        closeCart();
+      }
+    });
   }
 
   function init() {
