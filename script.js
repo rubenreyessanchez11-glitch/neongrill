@@ -1,126 +1,21 @@
 // script.js — Neon Grill
 (() => {
   const menuItems = [
-    {
-      id: 'm1',
-      name: 'Signature Burger',
-      price: 120,
-      image: 'signature-burger.jpg',
-      category: 'main',
-      desc: 'Beef patty, neon sauce, fries'
-    },
-    {
-      id: 'm2',
-      name: 'Neon Veggie',
-      price: 110,
-      image: 'neon-veggie.jpg',
-      category: 'main',
-      desc: 'Grilled veggies, vegan bun'
-    },
-    {
-      id: 'm3',
-      name: 'Street Fries',
-      price: 45,
-      image: 'street-fries.jpg',
-      category: 'side',
-      desc: 'Double-fried, salted'
-    },
-    {
-      id: 'm4',
-      name: 'Arcade Shake',
-      price: 65,
-      image: 'arcade-shake.jpg',
-      category: 'drink',
-      desc: 'Vanilla neon swirl'
-    },
-    {
-      id: 'm5',
-      name: 'Glowing Nachos',
-      price: 75,
-      image: 'glowing-nachos.jpg',
-      category: 'side',
-      desc: 'Cheesy, with pico'
-    },
-    {
-      id: 'm6',
-      name: 'Midnight Hotdog',
-      price: 85,
-      image: 'midnight-hotdog.jpg',
-      category: 'main',
-      desc: 'Loaded with neon relish'
-    },
-    {
-      id: 'm7',
-      name: 'Pixel Pancakes',
-      price: 55,
-      image: 'pixel-pancakes.jpg',
-      category: 'dessert',
-      desc: 'Sweet stack with syrup'
-    },
-    {
-      id: 'm8',
-      name: 'Fizzy Pop',
-      price: 35,
-      image: 'fizzy-pop.jpg',
-      category: 'drink',
-      desc: 'Soda with neon ice'
-    },
-    {
-      id: 'm9',
-      name: 'Choco Bomb',
-      price: 50,
-      image: 'choco-bomb.jpg',
-      category: 'dessert',
-      desc: 'Chocolate lava mini'
-    },
-    {
-      id: 'm10',
-      name: 'Neo Salad',
-      price: 95,
-      image: 'neo-salad.jpg',
-      category: 'main',
-      desc: 'Fresh greens, neon dressing'
-    },
-    {
-      id: 'm11',
-      name: 'Spicy Dragon Burger',
-      price: 130,
-      image: 'spicy-dragon-burger.jpg',
-      category: 'main',
-      desc: 'Jalapeño, ghost pepper, fire sauce'
-    },
-    {
-      id: 'm12',
-      name: 'Cyber Fries',
-      price: 55,
-      image: 'cyber-fries.jpg',
-      category: 'side',
-      desc: 'Truffle oil & parmesan'
-    },
-    {
-      id: 'm13',
-      name: 'Neon Milkshake',
-      price: 75,
-      image: 'neon-milkshake.jpg',
-      category: 'drink',
-      desc: 'Strawberry & mint neon blend'
-    },
-    {
-      id: 'm14',
-      name: 'Arcade Onion Rings',
-      price: 65,
-      image: 'arcade-onion-rings.jpg',
-      category: 'side',
-      desc: 'Crispy golden rings'
-    },
-    {
-      id: 'm15',
-      name: 'Future Pie',
-      price: 60,
-      image: 'future-pie.jpg',
-      category: 'dessert',
-      desc: 'Apple pie with neon glaze'
-    }
+    { id: 'm1', name: 'Signature Burger', price: 120, image: 'products/signature-burger.jpg', category: 'main', desc: 'Beef patty, neon sauce, fries' },
+    { id: 'm2', name: 'Neon Veggie', price: 110, image: 'products/neon-veggie.jpg', category: 'main', desc: 'Grilled veggies, vegan bun' },
+    { id: 'm3', name: 'Street Fries', price: 45, image: 'products/street-fries.jpg', category: 'side', desc: 'Double-fried, salted' },
+    { id: 'm4', name: 'Arcade Shake', price: 65, image: 'products/arcade-shake.jpg', category: 'drink', desc: 'Vanilla neon swirl' },
+    { id: 'm5', name: 'Glowing Nachos', price: 75, image: 'products/glowing-nachos.jpg', category: 'side', desc: 'Cheesy, with pico' },
+    { id: 'm6', name: 'Midnight Hotdog', price: 85, image: 'products/midnight-hotdog.jpg', category: 'main', desc: 'Loaded with neon relish' },
+    { id: 'm7', name: 'Pixel Pancakes', price: 55, image: 'products/pixel-pancakes.jpg', category: 'dessert', desc: 'Sweet stack with syrup' },
+    { id: 'm8', name: 'Fizzy Pop', price: 35, image: 'products/fizzy-pop.jpg', category: 'drink', desc: 'Soda with neon ice' },
+    { id: 'm9', name: 'Choco Bomb', price: 50, image: 'products/choco-bomb.jpg', category: 'dessert', desc: 'Chocolate lava mini' },
+    { id: 'm10', name: 'Neo Salad', price: 95, image: 'products/neo-salad.jpg', category: 'main', desc: 'Fresh greens, neon dressing' },
+    { id: 'm11', name: 'Spicy Dragon Burger', price: 130, image: 'products/spicy-dragon-burger.jpg', category: 'main', desc: 'Jalapeño, ghost pepper, fire sauce' },
+    { id: 'm12', name: 'Cyber Fries', price: 55, image: 'products/cyber-fries.jpg', category: 'side', desc: 'Truffle oil & parmesan' },
+    { id: 'm13', name: 'Neon Milkshake', price: 75, image: 'products/neon-milkshake.jpg', category: 'drink', desc: 'Strawberry & mint neon blend' },
+    { id: 'm14', name: 'Arcade Onion Rings', price: 65, image: 'products/arcade-onion-rings.jpg', category: 'side', desc: 'Crispy golden rings' },
+    { id: 'm15', name: 'Future Pie', price: 60, image: 'products/future-pie.jpg', category: 'dessert', desc: 'Apple pie with neon glaze' }
   ];
 
   const menuGrid = document.getElementById('menuGrid');
@@ -143,25 +38,25 @@
 
   const money = (number) => `$${number.toFixed(2)}`;
 
-  const saveCart = () => {
+  function saveCart() {
     try {
       localStorage.setItem('neon_cart', JSON.stringify(cart));
     } catch (error) {
       console.error('Could not save cart:', error);
     }
-  };
+  }
 
-  const loadCart = () => {
+  function loadCart() {
     try {
       const savedCart = localStorage.getItem('neon_cart');
       cart = savedCart ? JSON.parse(savedCart) : {};
     } catch (error) {
       cart = {};
     }
-  };
+  }
 
   function escapeHtml(text) {
-    return String(text).replace(/[&<>"']/g, (character) => ({
+    return String(text).replace(/[&<>"']/g, character => ({
       '&': '&amp;',
       '<': '&lt;',
       '>': '&gt;',
@@ -187,7 +82,7 @@
 
     const fragment = document.createDocumentFragment();
 
-    items.forEach((item) => {
+    items.forEach(item => {
       const card = document.createElement('article');
 
       card.className = 'menu-card';
@@ -235,10 +130,7 @@
                 +
               </button>
 
-              <button
-                class="btn-add btn primary"
-                style="margin-left:8px"
-              >
+              <button class="btn-add btn primary" style="margin-left:8px">
                 Add
               </button>
             </div>
@@ -274,7 +166,7 @@
     const fragment = document.createDocumentFragment();
     let subtotal = 0;
 
-    ids.forEach((id) => {
+    ids.forEach(id => {
       const quantity = cart[id];
       const item = menuItems.find(menuItem => menuItem.id === id);
 
@@ -333,7 +225,7 @@
 
     cartItemsEl.appendChild(fragment);
 
-    const totalProducts = ids.reduce(
+    const productCount = ids.reduce(
       (total, id) => total + cart[id],
       0
     );
@@ -341,14 +233,14 @@
     const service = subtotal * 0.05;
     const total = subtotal + service;
 
-    if (cartCountEl) cartCountEl.textContent = totalProducts;
+    if (cartCountEl) cartCountEl.textContent = productCount;
     if (subtotalEl) subtotalEl.textContent = money(subtotal);
     if (serviceEl) serviceEl.textContent = money(service);
     if (totalEl) totalEl.textContent = money(total);
   }
 
   function syncMenuQuantities() {
-    document.querySelectorAll('.menu-card').forEach((card) => {
+    document.querySelectorAll('.menu-card').forEach(card => {
       const id = card.dataset.id;
       const quantityInput = card.querySelector('.qty-input');
 
@@ -399,14 +291,14 @@
 
   function bindEvents() {
     if (filtersEl) {
-      filtersEl.addEventListener('click', (event) => {
+      filtersEl.addEventListener('click', event => {
         const button = event.target.closest('.filter');
 
         if (!button) return;
 
         const filter = button.dataset.filter || 'all';
 
-        filtersEl.querySelectorAll('.filter').forEach((filterButton) => {
+        filtersEl.querySelectorAll('.filter').forEach(filterButton => {
           filterButton.classList.toggle(
             'active',
             filterButton === button
@@ -418,7 +310,7 @@
     }
 
     if (menuGrid) {
-      menuGrid.addEventListener('click', (event) => {
+      menuGrid.addEventListener('click', event => {
         const increaseButton = event.target.closest('.btn-increase');
         const decreaseButton = event.target.closest('.btn-decrease');
         const addButton = event.target.closest('.btn-add');
@@ -447,7 +339,7 @@
         }
       });
 
-      menuGrid.addEventListener('change', (event) => {
+      menuGrid.addEventListener('change', event => {
         const input = event.target.closest('.qty-input');
 
         if (!input) return;
@@ -485,7 +377,7 @@
     }
 
     if (cartItemsEl) {
-      cartItemsEl.addEventListener('click', (event) => {
+      cartItemsEl.addEventListener('click', event => {
         const increaseButton =
           event.target.closest('.btn-increase-cart');
 
@@ -539,7 +431,7 @@
       });
     }
 
-    document.addEventListener('keydown', (event) => {
+    document.addEventListener('keydown', event => {
       if (event.key !== 'Escape') return;
 
       if (modal && modal.classList.contains('show')) {
