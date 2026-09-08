@@ -1,129 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta
-    name="description"
-    content="Neon Grill — retro-futuristic themed restaurant project."
-  >
-
-  <title>Neon Grill</title>
-
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Grill — Restaurant Project</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header class="nav">
-
   <a class="brand" href="#home">
-
-    <span class="brand-logo-wrap">
-      <img
-        src="assets/logo.png"
-        alt="Neon Grill logo"
-        class="brand-logo"
-      >
-    </span>
-
+    <img class="nav-logo" src="assets/logo.png" alt="Neon Grill logo">
     <span>NEON GRILL</span>
-
   </a>
 
-
-  <nav class="nav-links" aria-label="Main navigation">
-
+  <nav class="nav-links">
     <a href="#concept">Concept</a>
     <a href="#identity">Identity</a>
     <a href="#menu">Menu</a>
     <a href="#tasks">Tasks</a>
     <a href="#meetings">Meetings</a>
     <a href="#reflection">Reflection</a>
-
   </nav>
 
-
-  <button
-    class="cart-button"
-    id="openCart"
-    type="button"
-  >
-
-    Order
-
-    <span id="cartCount">
-      0
-    </span>
-
+  <button id="openCart" class="order-pill">
+    ORDER <b id="cartCount">0</b>
   </button>
-
 </header>
-
 
 <main>
 
-
-<section
-  class="hero"
-  id="home"
->
+<section id="home" class="hero">
 
   <div class="hero-copy">
 
-    <p class="eyebrow">
-      RETRO DINER × GAMER CULTURE
+    <p class="kicker">
+      RETRO DINER × DIGITAL EXPERIENCE
     </p>
 
     <h1>
-      Welcome to
-      <span>Neon Grill.</span>
+      Welcome to <span>Neon Grill.</span>
     </h1>
 
-    <p class="lead">
-
-      A retro-futuristic restaurant inspired by neon lights,
-      gaming culture and modern street food.
-
-      Food, technology and visual identity become one experience.
-
+    <p>
+      A retro-futuristic burger restaurant inspired by neon diners,
+      gamer culture and modern street food. Designed to feel like a
+      place you would want to visit, photograph and share.
     </p>
-
 
     <div class="hero-actions">
 
-      <a
-        class="button primary"
-        href="#menu"
-      >
-        Explore the menu
+      <a href="#menu" class="btn primary">
+        Explore the menu →
       </a>
 
-      <a
-        class="button secondary"
-        href="#concept"
-      >
+      <a href="#concept" class="btn secondary">
         Discover the concept
       </a>
 
     </div>
 
+    <div class="metrics">
 
-    <div class="stats">
-
-      <div class="stat">
-        <strong>15</strong>
+      <div class="metric">
+        <strong>10+</strong>
         <span>Menu products</span>
       </div>
 
-      <div class="stat">
-        <strong>4</strong>
-        <span>Team members</span>
+      <div class="metric">
+        <strong>2</strong>
+        <span>Team checkpoints</span>
       </div>
 
-      <div class="stat">
+      <div class="metric">
         <strong>100%</strong>
         <span>Tech identity</span>
       </div>
@@ -132,57 +81,29 @@
 
   </div>
 
+  <div class="hero-art">
 
-  <div class="hero-visual">
-
-    <div class="logo-stage">
-
-      <div class="glow glow-pink"></div>
-      <div class="glow glow-cyan"></div>
+    <div class="orbit">
 
       <img
-        src="assets/logo.png"
-        alt="Neon Grill official logo"
         class="hero-logo"
+        src="assets/logo.png"
+        alt="Neon Grill logo"
       >
 
-
-      <div class="floating-card floating-one">
-
-        <b>
-          Signature Burger
-        </b>
-
-        <span>
-          Classic neon flavor
-        </span>
-
+      <div class="float-chip fc1">
+        <b>Signature Burger</b>
+        <span>Classic neon burger</span>
       </div>
 
-
-      <div class="floating-card floating-two">
-
-        <b>
-          NEO-MENU
-        </b>
-
-        <span>
-          Live order total
-        </span>
-
+      <div class="float-chip fc2">
+        <b>NEON-MENU</b>
+        <span>Live order total</span>
       </div>
 
-
-      <div class="floating-card floating-three">
-
-        <b>
-          Pachuca, Hidalgo
-        </b>
-
-        <span>
-          Our future home
-        </span>
-
+      <div class="float-chip fc3">
+        <b>Our place</b>
+        <span>Pachuca, Hidalgo</span>
       </div>
 
     </div>
@@ -192,60 +113,56 @@
 </section>
 
 
+<section class="location">
 
-<section class="location-strip">
+  <div class="location-card">
 
-  <div>
+    <div>
 
-    <span class="small-label">
-      Restaurant location
-    </span>
+      <small>
+        Restaurant location
+      </small>
 
-    <strong>
-      Zona Plateada, Pachuca, Hidalgo, México
-    </strong>
+      <strong>
+        Silver Zone, Pachuca, Hidalgo, Mexico
+      </strong>
+
+    </div>
+
+    <a
+      class="btn secondary"
+      target="_blank"
+      rel="noreferrer"
+      href="https://www.google.com/maps/search/?api=1&query=Zona+Plateada+Pachuca+Hidalgo"
+    >
+      Open in Google Maps ↗️
+    </a>
 
   </div>
-
-
-  <a
-    class="button secondary"
-    target="_blank"
-    rel="noopener"
-    href="https://www.google.com/maps/search/?api=1&query=Zona+Plateada+Pachuca+Hidalgo"
-  >
-    Open in Google Maps
-  </a>
 
 </section>
 
 
+<section id="concept">
 
-<section
-  class="section"
-  id="concept"
->
-
-  <div class="section-header">
+  <div class="section-head">
 
     <div>
 
-      <p class="eyebrow">
+      <p class="kicker">
         01 — THEME & CONCEPT
       </p>
 
       <h2>
-        A diner from the future.
+        A dinner from the future.
       </h2>
 
     </div>
 
+    <p class="section-copy">
 
-    <p>
-
-      Our theme combines modern gamer culture with
-      street-food restaurants to create a comfortable
-      space surrounded by technology.
+     Our theme is inspired in the modern gamer culture and street food restaurants, adaptaded to
+     make you feel comfortable surround technology.
 
     </p>
 
@@ -254,7 +171,7 @@
 
   <div class="concept-grid">
 
-    <article class="panel concept-copy">
+    <article class="concept-copy card">
 
       <h3>
         Why Neon Grill?
@@ -262,24 +179,23 @@
 
       <p>
 
-        Neon Grill combines the comfort of a classic
-        American diner with a futuristic technology-focused
-        identity.
+        Our concept combines the comfort of a classic American
+        diner with a futuristic, tech identity.
 
-        Customers do not only buy food; they enter an
-        experience built around visual impact, nostalgia,
-        gaming and digital interaction.
+        Customers are not only buying food: they are entering an
+        experience built around visual impact, nostalgia and
+        technology.
 
       </p>
 
 
-      <div class="tags">
+      <div class="tag-row">
 
-        <span>Neon</span>
-        <span>Gaming</span>
-        <span>Burgers</span>
-        <span>Street food</span>
-        <span>Digital</span>
+        <span class="tag">Neon</span>
+        <span class="tag">Gaming</span>
+        <span class="tag">Burgers</span>
+        <span class="tag">Street food</span>
+        <span class="tag">Digital</span>
 
       </div>
 
@@ -288,42 +204,22 @@
 
     <div class="mood-grid">
 
-      <div class="mood mood-main">
-
-        <span>
-          NEON NIGHTS
-        </span>
-
+      <div class="mood big m1">
         <strong>
-          Gaming & arcade culture
+          Neon nights & arcade culture
         </strong>
-
       </div>
 
-
-      <div class="mood mood-food">
-
-        <span>
-          FOOD
-        </span>
-
+      <div class="mood m2">
         <strong>
-          Classic diner comfort
+          Classic diner food
         </strong>
-
       </div>
 
-
-      <div class="mood mood-social">
-
-        <span>
-          SOCIAL
-        </span>
-
+      <div class="mood m3">
         <strong>
-          Designed to be shared
+          Modern social-media vibe
         </strong>
-
       </div>
 
     </div>
@@ -333,17 +229,13 @@
 </section>
 
 
+<section id="identity" class="identity">
 
-<section
-  class="section section-alt"
-  id="identity"
->
-
-  <div class="section-header">
+  <div class="section-head">
 
     <div>
 
-      <p class="eyebrow">
+      <p class="kicker">
         02 — VISUAL IDENTITY
       </p>
 
@@ -353,12 +245,9 @@
 
     </div>
 
+    <p class="section-copy">
 
-    <p>
-
-      The logo, color palette and visual language make
-      Neon Grill recognizable across the restaurant,
-      menu, social media and promotional materials.
+      Designed to combine all the elements that make this restaruant and show it to the world.
 
     </p>
 
@@ -367,10 +256,9 @@
 
   <div class="identity-grid">
 
+    <article class="identity-card card">
 
-    <article class="panel identity-card">
-
-      <div class="official-logo">
+      <div class="logo-showcase">
 
         <img
           src="assets/logo.png"
@@ -384,17 +272,13 @@
       </h3>
 
       <p>
-
-        The official logo represents the restaurant's
-        neon and futuristic personality.
-
+        Represents the identity of this great place on social media.
       </p>
 
     </article>
 
 
-
-    <article class="panel identity-card">
+    <article class="identity-card card">
 
       <h3>
         Color palette
@@ -402,40 +286,24 @@
 
       <div class="palette">
 
-        <div>
-          <span class="swatch swatch-dark"></span>
-          <small>#08090D</small>
-        </div>
-
-        <div>
-          <span class="swatch swatch-pink"></span>
-          <small>#FF3CAC</small>
-        </div>
-
-        <div>
-          <span class="swatch swatch-cyan"></span>
-          <small>#2EE6FF</small>
-        </div>
-
-        <div>
-          <span class="swatch swatch-lime"></span>
-          <small>#C7FF44</small>
-        </div>
-
-        <div>
-          <span class="swatch swatch-white"></span>
-          <small>#F8F5EE</small>
-        </div>
+        <span class="swatch sw1"></span>
+        <span class="swatch sw2"></span>
+        <span class="swatch sw3"></span>
+        <span class="swatch sw4"></span>
+        <span class="swatch sw5"></span>
 
       </div>
+
+      <p>
+        #08090D · #FF3CAC · #2EE6FF · #C7FF44 · #F8F5EE
+      </p>
 
     </article>
 
 
+    <article class="identity-card card">
 
-    <article class="panel identity-card">
-
-      <div class="bot">
+      <div class="mascot">
         🤖🍔
       </div>
 
@@ -444,10 +312,7 @@
       </h3>
 
       <p>
-
-        The face of our customer service and a character
-        that can appear in promotions and merchandise.
-
+        The main manager of our costumer service and the face of our brand alongside the Neon Burger.
       </p>
 
     </article>
@@ -455,12 +320,12 @@
   </div>
 
 
-  <div class="banner">
+  <div class="brand-banner">
 
     <div>
 
-      <p class="eyebrow">
-        LOOKING FOR SOMETHING DIFFERENT?
+      <p class="kicker">
+        Looking for something new and different?
       </p>
 
       <h3>
@@ -468,22 +333,15 @@
       </h3>
 
       <p>
-        Burgers • Fries • Shakes • Gaming • Neon Nights
+        Burgers • Fries • Shakes • Arcade • Neon Nights
       </p>
 
     </div>
 
-
-    <div class="banner-mark">
-
-      NEON
-      <br>
-
-      GRILL
-      <br>
-
+    <div class="banner-stamp">
+      NEON<br>
+      GRILL<br>
       2026
-
     </div>
 
   </div>
@@ -491,17 +349,13 @@
 </section>
 
 
+<section id="menu">
 
-<section
-  class="section"
-  id="menu"
->
-
-  <div class="section-header">
+  <div class="section-head">
 
     <div>
 
-      <p class="eyebrow">
+      <p class="kicker">
         03 — MENU
       </p>
 
@@ -511,62 +365,49 @@
 
     </div>
 
+    <p class="section-copy">
 
-    <p>
-
-      Meet our products and order easily with the
-      interactive NEO-MENU.
+      Meet our variety of products, order it easily 
+      with the NEO-MENU.
 
     </p>
 
   </div>
 
 
-  <div
-    class="filters"
-    id="filters"
-  >
+  <div class="menu-toolbar" id="filters">
 
     <button
       class="filter active"
       data-filter="all"
-      type="button"
     >
       All
     </button>
 
-
     <button
       class="filter"
       data-filter="main"
-      type="button"
     >
       Burgers & mains
     </button>
 
-
     <button
       class="filter"
       data-filter="side"
-      type="button"
     >
       Sides
     </button>
 
-
     <button
       class="filter"
       data-filter="drink"
-      type="button"
     >
       Drinks
     </button>
 
-
     <button
       class="filter"
       data-filter="dessert"
-      type="button"
     >
       Desserts
     </button>
@@ -577,16 +418,15 @@
   <div
     class="menu-grid"
     id="menuGrid"
-  >
-  </div>
+  ></div>
 
 
   <div class="promo">
 
     <div>
 
-      <p class="eyebrow">
-        PROMOTION
+      <p class="kicker">
+        PROMOTION POSTER
       </p>
 
       <h3>
@@ -594,14 +434,11 @@
       </h3>
 
       <p>
-
         Buy one selected burger and get the second one free
         from 4:00 PM to 7:00 PM.
-
       </p>
 
     </div>
-
 
     <div class="promo-badge">
       2×1
@@ -612,17 +449,16 @@
 </section>
 
 
-
 <section
-  class="section section-alt"
   id="tasks"
+  class="tasks"
 >
 
-  <div class="section-header">
+  <div class="section-head">
 
     <div>
 
-      <p class="eyebrow">
+      <p class="kicker">
         04 — PENDING TASKS
       </p>
 
@@ -632,12 +468,9 @@
 
     </div>
 
-
-    <p>
-
-      Clear responsibilities help the team avoid
+    <p class="section-copy">
+      A clear ownership table helps the team avoid
       duplicated work and missed deadlines.
-
     </p>
 
   </div>
@@ -654,16 +487,14 @@
           <th>Task</th>
           <th>Owner</th>
           <th>Deadline</th>
-          <th>Section</th>
+          <th>Platform section</th>
           <th>Status</th>
 
         </tr>
 
       </thead>
 
-
       <tbody>
-
 
         <tr>
 
@@ -695,7 +526,7 @@
         <tr>
 
           <td>
-            Graphic design
+            Graphic Design
           </td>
 
           <td>
@@ -711,7 +542,7 @@
           </td>
 
           <td>
-            <span class="status done">
+            <span class="status progress">
               Done
             </span>
           </td>
@@ -738,7 +569,7 @@
           </td>
 
           <td>
-            <span class="status done">
+            <span class="status pending">
               Done
             </span>
           </td>
@@ -753,7 +584,7 @@
           </td>
 
           <td>
-            Pedro Cancino
+            Pedro Cancino 
           </td>
 
           <td>
@@ -781,17 +612,13 @@
 </section>
 
 
+<section id="meetings">
 
-<section
-  class="section"
-  id="meetings"
->
-
-  <div class="section-header">
+  <div class="section-head">
 
     <div>
 
-      <p class="eyebrow">
+      <p class="kicker">
         05 — MEETINGS
       </p>
 
@@ -807,11 +634,13 @@
   <div class="meeting-grid">
 
 
-    <article class="panel meeting">
+    <article class="meeting card">
 
       <div class="date">
 
-        <b>07</b>
+        <b>
+          07
+        </b>
 
         <span>
           SEP
@@ -827,27 +656,28 @@
         </h3>
 
         <p>
+
           Creativity and Digital Design · 10:00 AM
+
+          <br>
+
+          Review theme, roles, palette,
+          logo and first menu draft.
+
         </p>
-
-        <small>
-
-          Review theme, roles, palette, logo and
-          first menu draft.
-
-        </small>
 
       </div>
 
     </article>
 
 
-
-    <article class="panel meeting">
+    <article class="meeting card">
 
       <div class="date">
 
-        <b>09</b>
+        <b>
+          09
+        </b>
 
         <span>
           SEP
@@ -863,15 +693,15 @@
         </h3>
 
         <p>
-          Creativity and Digital Design · 10:00 AM
-        </p>
 
-        <small>
+          Creativity and Digital Design · 10:00 AM
+
+          <br>
 
           Check the website, visual consistency
           and investor presentation.
 
-        </small>
+        </p>
 
       </div>
 
@@ -882,17 +712,16 @@
 </section>
 
 
-
 <section
-  class="section section-alt"
   id="reflection"
+  class="reflection"
 >
 
-  <div class="section-header">
+  <div class="section-head">
 
     <div>
 
-      <p class="eyebrow">
+      <p class="kicker">
         06 — REFLECTION
       </p>
 
@@ -908,11 +737,11 @@
   <div class="reflection-grid">
 
 
-    <article class="panel reflection-card">
+    <article class="reflection-card card">
 
-      <span>
+      <div class="ref-number">
         01
-      </span>
+      </div>
 
       <h3>
         Organization & Collaboration
@@ -921,20 +750,19 @@
       <p>
 
         The platform helped us divide responsibilities,
-        keep deadlines visible and centralize ideas to
-        achieve our goals.
+        keep deadlines visible and centralize ideas instead
+        to achhieve our goals.
 
       </p>
 
     </article>
 
 
+    <article class="reflection-card card">
 
-    <article class="panel reflection-card">
-
-      <span>
+      <div class="ref-number">
         02
-      </span>
+      </div>
 
       <h3>
         Visual Consistency
@@ -942,21 +770,21 @@
 
       <p>
 
-        Repeating the same colors, typography, imagery
-        and tone makes the project more professional
-        and easier to recognize.
+        We learned that repeating the same colors,
+        typography, image style and tone makes a project
+        feel more professional and makes the brand easier
+        to recognize.
 
       </p>
 
     </article>
 
 
+    <article class="reflection-card card">
 
-    <article class="panel reflection-card">
-
-      <span>
+      <div class="ref-number">
         03
-      </span>
+      </div>
 
       <h3>
         Digital Citizenship
@@ -964,23 +792,24 @@
 
       <p>
 
-        We promoted respect and responsibility through
-        clear roles, constructive feedback and responsible
-        editing of shared work.
+        We promoted respect and responsibility by assigning
+        clear roles, giving constructive feedback, crediting
+        each person's work and making responsible edits to
+        shared content.
 
       </p>
 
     </article>
+
 
   </div>
 
 </section>
 
 
+<section class="invest">
 
-<section class="section investor">
-
-  <p class="eyebrow">
+  <p class="kicker">
     STEP 3 — INVESTOR PRESENTATION
   </p>
 
@@ -988,31 +817,30 @@
     Neon Grill is more than a restaurant.
   </h2>
 
-  <p class="investor-lead">
+  <p class="section-copy">
 
-    It is a unique experience that combines technological
-    innovation with the comfort of a restaurant to offer
-    memorable service.
+   It is a unique experience that combines technological innovation 
+   with the comfort of a restaurant to offer the best service.
 
   </p>
 
 
-  <div class="investor-grid">
+  <div class="invest-points">
 
-    <div class="panel">
+    <div class="invest-point card">
 
       <b>
         Distinct concept
       </b>
 
       <span>
-        Different from traditional brands
+        Different and unique from any brand
       </span>
 
     </div>
 
 
-    <div class="panel">
+    <div class="invest-point card">
 
       <b>
         Digital-first
@@ -1025,20 +853,20 @@
     </div>
 
 
-    <div class="panel">
+    <div class="invest-point card">
 
       <b>
         Shareable brand
       </b>
 
       <span>
-        Made for social content
+        Built for social content
       </span>
 
     </div>
 
 
-    <div class="panel">
+    <div class="invest-point card">
 
       <b>
         Scalable menu
@@ -1053,7 +881,7 @@
   </div>
 
 
-  <div class="final-message">
+  <div class="ask">
 
     NEON GRILL — Turn dinner into an experience.
 
@@ -1061,15 +889,13 @@
 
 </section>
 
-
 </main>
-
 
 
 <footer>
 
   <span>
-    NEON GRILL © 2026
+    NEON GRILL ©️ 2026
   </span>
 
   <span>
@@ -1083,40 +909,34 @@
 </footer>
 
 
-
 <div
   class="overlay"
   id="overlay"
->
-</div>
-
+></div>
 
 
 <aside
   class="cart"
   id="cart"
-  aria-hidden="true"
 >
 
-  <div class="cart-header">
+  <div class="cart-head">
 
     <div>
 
-      <p class="eyebrow">
+      <p class="kicker">
         YOUR ORDER
       </p>
 
-      <h2>
+      <h2 style="font-size:2.7rem">
         Checkout
       </h2>
 
     </div>
 
-
     <button
+      class="close"
       id="closeCart"
-      class="close-button"
-      type="button"
     >
       ×
     </button>
@@ -1127,13 +947,12 @@
   <div
     class="cart-items"
     id="cartItems"
-  >
-  </div>
+  ></div>
 
 
-  <div class="cart-total">
+  <div class="cart-summary">
 
-    <div>
+    <div class="sum-row">
 
       <span>
         Subtotal
@@ -1146,7 +965,7 @@
     </div>
 
 
-    <div>
+    <div class="sum-row">
 
       <span>
         Service (5%)
@@ -1159,7 +978,7 @@
     </div>
 
 
-    <div class="grand-total">
+    <div class="sum-row total">
 
       <span>
         Total
@@ -1175,18 +994,15 @@
     <div class="cart-actions">
 
       <button
+        class="btn secondary"
         id="clearCart"
-        class="button secondary"
-        type="button"
       >
         Clear
       </button>
 
-
       <button
+        class="btn primary"
         id="confirmOrder"
-        class="button primary"
-        type="button"
       >
         Confirm order
       </button>
@@ -1198,48 +1014,39 @@
 </aside>
 
 
-
 <div
   class="modal"
   id="modal"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="modalTitle"
 >
 
   <div class="check">
     ✓
   </div>
 
-  <p class="eyebrow">
-    DEMO ORDER COMPLETE
+  <p class="kicker">
+   ORDER COMPLETE
   </p>
 
-  <h2 id="modalTitle">
+  <h2 style="font-size:2.8rem">
     Order confirmed.
   </h2>
 
   <p>
 
-    This demonstration order works correctly
-    and is ready for your presentation.
+    Your experience is working correctly.
 
   </p>
 
-
   <button
-    class="button primary"
+    class="btn primary"
     id="closeModal"
-    type="button"
   >
     Done
   </button>
 
 </div>
 
-
 <script src="script.js"></script>
 
 </body>
-
 </html>
